@@ -38,21 +38,20 @@ const ExpenseForm = ({ expense, onSave, onCancel }) => {
 
   return (
     <form onSubmit={handleSubmit} className="expense-form">
-      <h2>{expense ? 'Edit Expense' : 'Add New Expense'}</h2>
-      
       <div className="form-group">
-        <label>Description:</label>
+        <label>Description</label>
         <input
           type="text"
           name="description"
           value={formData.description}
           onChange={handleChange}
+          placeholder="Enter expense description"
           required
         />
       </div>
 
       <div className="form-group">
-        <label>Amount(₹):</label>
+        <label>Amount (₹)</label>
         <input
           type="number"
           name="amount"
@@ -66,7 +65,7 @@ const ExpenseForm = ({ expense, onSave, onCancel }) => {
       </div>
 
       <div className="form-group">
-        <label>Date:</label>
+        <label>Date</label>
         <input
           type="date"
           name="date"
@@ -77,7 +76,7 @@ const ExpenseForm = ({ expense, onSave, onCancel }) => {
       </div>
 
       <div className="form-group">
-        <label>Category:</label>
+        <label>Category</label>
         <select
           name="category"
           value={formData.category}
@@ -92,13 +91,11 @@ const ExpenseForm = ({ expense, onSave, onCancel }) => {
 
       <div className="form-actions">
         <button type="submit" className="btn btn-primary">
-          {expense ? 'Update' : 'Add'} Expense
+          {expense ? 'Update' : 'Save'} Expense
         </button>
-        {expense && (
-          <button type="button" onClick={onCancel} className="btn btn-secondary">
-            Cancel
-          </button>
-        )}
+        <button type="button" onClick={onCancel} className="btn btn-secondary">
+          Cancel
+        </button>
       </div>
     </form>
   );
